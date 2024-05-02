@@ -35,11 +35,10 @@ const YearProgress = () => {
 	}, []);
 
 	return (
-		<div>
-			<h1>Year Progress</h1>
-			<section className='text-center flex flex-col gap-3 items-center'>
+		<div className='space-y-12'>
+			<section className='text-center flex flex-col space-y-6 items-center'>
 				<h1 className='font-extrabold text-7xl text-blue-600'>{currentYear}</h1>
-				<p className='text-xl font-semibold text-sky-600 font-serif'>
+				<p className='text-xl font-semibold font-serif'>
 					{percentagePassed.toFixed(7)}%
 				</p>
 				<ProgressBar value={percentagePassed} max={100} />

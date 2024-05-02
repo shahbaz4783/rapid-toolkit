@@ -17,3 +17,7 @@ interface InvestmentResult {
 	totalGain: number;
 	totalValue: number;
 }
+
+interface ReactNode {
+	children: React.ReactNode;
+}
