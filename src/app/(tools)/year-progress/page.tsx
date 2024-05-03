@@ -1,6 +1,6 @@
 'use client';
 
-import TimeLeftDisplay from '@/components/date-time/TimeLeftDisplay';
+import TimeLeftDisplay from '@/app/(tools)/year-progress/TimeLeftDisplay';
 import React, { useState, useEffect } from 'react';
 import { percentageOfYearPassed, timeLeftInYear } from '@/utils/time';
 import { ProgressBar } from '@/components/ui/ProgressBar';

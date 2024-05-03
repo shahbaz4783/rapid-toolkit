@@ -26,3 +26,27 @@ interface BaseOptions {
 	onHandleFromProp: any;
 	onHandleToProp: any;
 }
+
+interface Button {
+	title: string;
+	onClick?: React.MouseEventHandler<HTMLButtonElement>;
+	isActive?: boolean;
+}
+
+
+interface InputFieldFunction {
+	onChangeProp?: any;
+	userInput?: any;
+	investmentType: string;
+	onInvestmentTypeChange: (type: string) => void;
+}
+
+interface ListWrapper {
+	field: string;
+	value: string;
+}
+
+interface Result {
+	input: any;
+	investmentType: string;
+}

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import DisplayCard from '../cards/DisplayCard';
+import DisplayCard from '../../../components/cards/DisplayCard';
 
 const TimeLeftDisplay: FC<{
 	timeleft: { days: number; hours: number; minutes: number; seconds: number };
