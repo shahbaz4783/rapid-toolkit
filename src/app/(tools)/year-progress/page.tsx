@@ -43,9 +43,9 @@ const YearProgress = () => {
 				</p>
 				<ProgressBar value={percentagePassed} max={100} />
 			</section>
-			<div>
+			<section>
 				<TimeLeftDisplay timeleft={timeLeft} />
-			</div>
+			</section>
 		</div>
 	);
 };

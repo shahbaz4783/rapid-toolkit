@@ -21,3 +21,8 @@ interface InvestmentResult {
 interface ReactNode {
 	children: React.ReactNode;
 }
+
+interface BaseOptions {
+	onHandleFromProp: any;
+	onHandleToProp: any;
+}

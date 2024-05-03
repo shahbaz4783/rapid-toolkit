@@ -8,8 +8,8 @@ export default function Home() {
 			<section className='grid gap-4 grid-cols-2 sm:grid-cols-4'>
 				{tools.map((item, index) => (
 					<Link key={index} href={item.path} className='border rounded-sm p-3'>
-						<h2>{item.title}</h2>
-						<p>{item.description}</p>
+						<h2 className='text-lg'>{item.title}</h2>
+						<p className='text-sm text-slate-400'>{item.description}</p>
 					</Link>
 				))}
 			</section>
