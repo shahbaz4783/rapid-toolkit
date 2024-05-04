@@ -4,11 +4,35 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState, useRef } from 'react';
 import BaseOptions from './base-options';
+import DisplayCard from '@/components/cards/DisplayCard';
+import { MoveDown, MoveRight } from 'lucide-react';
 
 export const Form = () => {
 	const [fromBase, setfromBase] = useState<number>(10);
 	const [toBase, settoBase] = useState<number>(16);
 	const [enteredNum, setEnteredNum] = useState('');
+
+	const currentBase =
+		fromBase === 2
+			? 'Binary'
+			: fromBase === 8
+			? 'Octal'
+			: fromBase === 10
+			? 'Decimal'
+			: fromBase === 16
+			? 'Hexadecimal'
+			: 'Wrong Selection';
+
+	const desiredBase =
+		toBase === 2
+			? 'Binary'
+			: toBase === 8
+			? 'Octal'
+			: toBase === 10
+			? 'Decimal'
+			: toBase === 16
+			? 'Hexadecimal'
+			: 'Wrong Selection';
 
 	const number = useRef<HTMLInputElement | null>(null);
 
@@ -28,23 +52,30 @@ export const Form = () => {
 	};
 
 	return (
-		<>
+		<div className='flex flex-col gap-6  rounded-xl p-4 w-full md:w-2/3'>
 			<form
 				onSubmit={handleSubmit}
-				className='flex flex-col gap-10 w-full md:w-2/3 p-6 rounded-xl border-8'
+				className='flex flex-col gap-8 p-6 rounded-xl border-8'
 			>
+				<Input placeholder='Enter number' ref={number} required />
 				<BaseOptions
 					onHandleFromProp={handleFromOption}
 					onHandleToProp={handleToOption}
 				/>
-				<Input placeholder='Enter a number' ref={number} required />
 				<Button>Convert</Button>
 			</form>
 			{enteredNum && (
-				<p className='font-mono text-3xl text-center w-full overflow-scroll bg-gray-100 text-blue-800 p-4 md:w-2/3 rounded-lg'>
-					{enteredNum}
-				</p>
+				<div className='space-y-4 md:grid grid-cols-3 justify-between items-center'>
+					<DisplayCard title={currentBase} data={number.current?.value} />
+					<div className='hidden md:flex justify-center items-center'>
+						<MoveRight />
+					</div>
+					<div className='md:hidden flex justify-center items-center'>
+						<MoveDown />
+					</div>
+					<DisplayCard title={desiredBase} data={enteredNum} />
+				</div>
 			)}
-		</>
+		</div>
 	);
 };

@@ -13,7 +13,7 @@ const BaseOptions = ({ onHandleFromProp, onHandleToProp }: BaseOptions) => {
 		<div className='grid md:grid-cols-2 gap-4'>
 			<Select onValueChange={onHandleFromProp}>
 				<SelectTrigger>
-					<SelectValue placeholder='From' />
+					<SelectValue placeholder='From Base' />
 				</SelectTrigger>
 				<SelectContent>
 					<SelectGroup>
@@ -28,7 +28,7 @@ const BaseOptions = ({ onHandleFromProp, onHandleToProp }: BaseOptions) => {
 
 			<Select onValueChange={onHandleToProp}>
 				<SelectTrigger>
-					<SelectValue placeholder='To' />
+					<SelectValue placeholder='To Base' />
 				</SelectTrigger>
 				<SelectContent>
 					<SelectGroup>

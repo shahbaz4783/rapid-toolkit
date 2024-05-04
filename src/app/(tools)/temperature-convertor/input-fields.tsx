@@ -8,10 +8,10 @@ import {
 	SelectContent,
 	SelectGroup,
 	SelectItem,
-	SelectLabel,
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
+import DisplayCard from '@/components/cards/DisplayCard';
 
 export const InputFields = () => {
 	const [formValues, setFormValues] = useState({
@@ -103,25 +103,10 @@ export const InputFields = () => {
 				<Button>Convert</Button>
 			</form>
 			{formValues.celsius && (
-				<article className='border p-4 w-full md:w-1/3 '>
-					<div className='flex justify-between'>
-						<span className='text-xl'>Celsius</span>
-						<span className='text-xl font-mono font-bold'>
-							{formValues.celsius} °C
-						</span>
-					</div>
-					<div className='flex justify-between'>
-						<span className='text-xl'>Fahrenheit</span>
-						<span className='text-xl font-mono font-bold'>
-							{formValues.fahrenheit} °F
-						</span>
-					</div>
-					<div className='flex justify-between'>
-						<span className='text-xl'>Kelvin</span>
-						<span className='text-xl font-mono font-bold'>
-							{formValues.kelvin} &nbsp;K
-						</span>
-					</div>
+				<article className='w-full space-y-6 md:w-1/3 '>
+					<DisplayCard title='Celsius' data={formValues.celsius} />
+					<DisplayCard title='Fahrenheit' data={formValues.fahrenheit} />
+					<DisplayCard title='Kelvin' data={formValues.kelvin} />
 				</article>
 			)}
 		</>

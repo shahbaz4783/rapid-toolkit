@@ -1,6 +1,12 @@
 import React from 'react';
 
-const DisplayCard = ({ title, data }: { title: string; data: number }) => {
+const DisplayCard = ({
+	title,
+	data,
+}: {
+	title: string;
+	data: number | string | undefined;
+}) => {
 	return (
 		<div className='p-4 bg-slate-800 rounded-md'>
 			<p className='text-3xl text-slate-300 italic font-bold font-serif'>

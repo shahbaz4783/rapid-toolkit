@@ -7,7 +7,9 @@ const DateTimeLayout = ({ children }: ReactNode) => {
 			<Link href={'/'}>
 				<MoveLeft className='cursor-pointer hover:text-blue-200' />
 			</Link>
-			{children}
+			<main className='md:w-4/5 md:m-auto space-y-8 items-center justify-center'>
+				{children}
+			</main>
 		</div>
 	);
 };

@@ -25,7 +25,7 @@ const InvestmentCalculator: React.FC = () => {
 		});
 	};
 	return (
-		<div className='md:w-4/5 md:m-auto flex flex-col md:flex-row gap-10 justify-between'>
+		<div className='md:flex gap-8'>
 			<InvestmentInputField
 				userInput={userInput}
 				onChangeProp={handleChange}
