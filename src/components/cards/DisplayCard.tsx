@@ -5,7 +5,7 @@ const DisplayCard = ({
 	data,
 }: {
 	title: string;
-	data: number | string | undefined;
+	data: number | string | undefined | null;
 }) => {
 	return (
 		<div className='p-4 bg-slate-800 rounded-md'>

@@ -50,3 +50,25 @@ interface Result {
 	input: any;
 	investmentType: string;
 }
+
+interface TipInputProps {
+	userInput: {
+		tipPercentage: number | null;
+		totalBill: number | null;
+		totalPerson: number | null;
+	};
+	onChangeProp: any;
+}
+
+interface DisplayTipInterface {
+	selectedTip: number;
+	bill: number;
+	people: null;
+	onReset: () => void;
+}
+
+interface TipInputs {
+	tipPercentage: number | null;
+	totalBill: number | null;
+	totalPerson: number | null;
+}
