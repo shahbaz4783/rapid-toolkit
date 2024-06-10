@@ -29,4 +29,10 @@ export const tools: ToolsInfoObject[] = [
 		path: '/age-calculator',
 		tags: 'calculator, date',
 	},
+	{
+		title: 'Splitter',
+		description: 'Split the bills amonge persons',
+		path: '/splitter',
+		tags: 'splitter, bill',
+	},
 ];
