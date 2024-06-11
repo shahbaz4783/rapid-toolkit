@@ -1,12 +1,18 @@
 import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 import { DollarSign, UserRound } from 'lucide-react';
 import React from 'react';
 
+interface TipInputProps {
+	userInput: TipInputs;
+	onChangeProp: (field: keyof TipInputs, value: number | null) => void;
+}
+
 const InputFields = ({ userInput, onChangeProp }: TipInputProps) => {
 	return (
-		<aside className='space-y-8'>
+		<aside className='border-4 border-slate-300 rounded-xl p-6 space-y-8'>
 			<div className='space-y-2'>
-				<label htmlFor='bill'>Bill</label>
+				<label htmlFor='bill'>Total Bill</label>
 				<div className='flex rounded-lg'>
 					<div className='border p-3 flex items-center rounded-s-md overflow-hidden'>
 						<DollarSign />
@@ -15,9 +21,12 @@ const InputFields = ({ userInput, onChangeProp }: TipInputProps) => {
 						type='number'
 						name='bill'
 						id='bill'
-						value={userInput.totalBill || undefined}
+						value={userInput.totalBill ?? ''}
 						onChange={(e) =>
-							onChangeProp(e.target.value ? parseInt(e.target.value) : '')
+							onChangeProp(
+								'totalBill',
+								e.target.value ? parseInt(e.target.value) : null
+							)
 						}
 					/>
 				</div>
@@ -28,7 +37,11 @@ const InputFields = ({ userInput, onChangeProp }: TipInputProps) => {
 					{[5, 10, 15, 25, 50].map((tip) => (
 						<div
 							key={tip}
-							className='px-8 py-2 rounded-md text-center cursor-pointer text-white'
+							className={cn(
+								'px-6 py-3 rounded-md text-center cursor-pointer bg-slate-800',
+								{ 'bg-slate-900': userInput.tipPercentage === tip }
+							)}
+							onClick={() => onChangeProp('tipPercentage', tip)}
 						>
 							{tip}%
 						</div>
@@ -36,8 +49,14 @@ const InputFields = ({ userInput, onChangeProp }: TipInputProps) => {
 					<div className='rounded-md cursor-pointer overflow-hidden'>
 						<Input
 							type='number'
+							className='py-3'
 							placeholder='Custom'
-							value={userInput.tipPercentage || undefined}
+							onChange={(e) =>
+								onChangeProp(
+									'tipPercentage',
+									e.target.value ? parseInt(e.target.value) : null
+								)
+							}
 						/>
 					</div>
 				</menu>
@@ -54,7 +73,13 @@ const InputFields = ({ userInput, onChangeProp }: TipInputProps) => {
 						type='number'
 						name='people'
 						id='people'
-						value={userInput.totalPerson || undefined}
+						value={userInput.totalPerson ?? ''}
+						onChange={(e) =>
+							onChangeProp(
+								'totalPerson',
+								e.target.value ? parseInt(e.target.value) : null
+							)
+						}
 					/>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ const DisplayCard = ({
 	data: number | string | undefined | null;
 }) => {
 	return (
-		<div className='p-4 bg-slate-800 rounded-md'>
+		<div className='p-4 bg-slate-800 rounded-md flex-1'>
 			<p className='text-3xl text-slate-300 italic font-bold font-serif'>
 				{data}
 			</p>
